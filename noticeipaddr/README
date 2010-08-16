@@ -1,0 +1,2 @@
+MR504DVのDDNS機能がアレなので書いた．
+internet上に置かれたechoipaddr.phpを一定間隔で見に行き，前回の巡回時と変化していればメール送信とDDNS更新を行う．

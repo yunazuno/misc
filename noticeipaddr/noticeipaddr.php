@@ -1,12 +1,10 @@
 #!/usr/bin/php
 <?php
   /*
-   * DiCEÅª¥¹¥¯¥ê¥×¥È
-   * IP¥¢¥É¥ì¥¹ÊÑ¹¹¤ò¥á¡¼¥ëÄÌÃÎ&DDNS¹¹¿·
-   * Í×cronÀßÄê
+   * DiCEçš„ã‚¹ã‚¯ãƒªãƒ—ãƒˆ
+   * IPã‚¢ãƒ‰ãƒ¬ã‚¹å¤‰æ›´ã‚’ãƒ¡ãƒ¼ãƒ«é€šçŸ¥&DDNSæ›´æ–°
+   * è¦cronè¨­å®š
    */
-
-mb_internal_encoding('EUC-JP');
 
 require('Mail.php');
 
