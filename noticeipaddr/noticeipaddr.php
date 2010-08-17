@@ -13,7 +13,7 @@ $headers['To']      = 'me@example.com';
 $headers['Subject'] = 'IP address changed';
 
 $mail_options = array(
-    'host'      => 'be55.com',
+    'host'      => 'example.com',
     'port'      => 587, 
     'auth'      => false,
 //    'username'  => '',
