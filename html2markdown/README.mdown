@@ -1,0 +1,32 @@
+html2markdown
+==================
+
+HTMLからMarkdownへの変換を補助します．
+実際の変換には[Markdownify]<http://milianw.de/projects/markdownify/>を使用しています．
+
+動作環境
+--------------
+* PHP 5.3 以上
+* PEAR::Console::CommandLine
+
+使用方法
+--------------
+
+### 通常
+
+    $ ./html2markdown.php file.html
+
+この場合，カレントディレクトリの"output/file.mdown"に出力されます．
+
+### オプションその他
+
+    $ ./html2markdown.php -i htm -o md -d /home/hoge/output /home/hoge/file.htm
+
+この場合，"/home/hoge/output/home/hoge/file.md"に出力されます．
+
+### xargs併用
+
+    $ find /home/hoge/files -name "*.html" | \
+    > sed -e "s/^\/home\/hoge\/files\///" | \
+    > xargs ./html2markdown.php 
+
