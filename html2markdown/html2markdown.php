@@ -7,6 +7,8 @@
  * based on markdownify_cli.php
  */
 
+ini_set('memory_limit', -1);
+
 require(dirname(__FILE__) .'/markdownify/markdownify_extra.php');
 require('Console/CommandLine.php');
 
@@ -78,19 +80,26 @@ $links_after_each_paragraph = $result->options['links'];
 $body_width = $result->options['width'];
 $keep_HTML = $result->options['keeptags'];
 
-if ($result->options['noextra']) {
-    $parser = new Markdownify($links_after_each_paragraph, $body_width, $keep_HTML);
-}
-else
-{
-    $parser = new Markdownify_Extra($links_after_each_paragraph, $body_width, $keep_HTML);
-}
-
 //
 // HTML-＞Markdown変換
 //
 while (list($key, $input_path) = each($result->args['files']))
 {
+    // インスタンスを毎回生成し直す
+    // TODO: 改善方法の検討
+    if (isset($parser))
+    {
+        unset($parser);
+    }
+
+    if ($result->options['noextra']) {
+        $parser = new Markdownify($links_after_each_paragraph, $body_width, $keep_HTML);
+    }
+    else
+    {
+        $parser = new Markdownify_Extra($links_after_each_paragraph, $body_width, $keep_HTML);
+    }
+
     echo("Convert ${input_path}\n");
 
     $input = file_get_contents($input_path);
