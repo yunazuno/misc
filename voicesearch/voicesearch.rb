@@ -2,20 +2,19 @@
 # -*- coding: utf-8 -*-
 
 require "julius"
-require "modrepl"
+require "mozrepl"
 require "uri"
 
-juli = new Julius()
-ffcon = new MozRepl()
-
+# Connect julius and MozRepl
+juli = Julius.new()
+ffcon = MozRepl.new()
 juli.connect()
 ffcon.connect()
 
-while true
-  words = juli.word()
-  print words
-  cmd = 'content.location.href=http://www.google.com/search?q='
-  $KCODE = 'UTF8'
-  cmd += URI.encode(words)
-  ffcon.command(cmd)
-end
+# Wait talking and google it!
+words = juli.word()
+cmd = 'content.location.href="http://www.google.com/search?q='
+cmd += URI.encode(words) + '"'
+ffcon.command("repl.home()")
+ffcon.command(cmd)
+ffcon.close()
