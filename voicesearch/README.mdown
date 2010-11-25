@@ -1,0 +1,10 @@
+
+Usage
+=====
+
+    $ julius -C /path/to/config.jconf -charconv EUC-JP UTF-8 -module
+    $ firefox (and start MozRepl)
+    $ ruby voicesearch.rb
+    
+Enjoy googling with your voice!
+
