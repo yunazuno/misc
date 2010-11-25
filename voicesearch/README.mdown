@@ -6,5 +6,5 @@ Usage
     $ firefox (and start MozRepl)
     $ ruby voicesearch.rb
     
-Enjoy googling with your voice!
+Enjoy!
 
